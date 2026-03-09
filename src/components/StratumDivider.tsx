@@ -26,7 +26,7 @@ const dotColor: Record<number, string> = {
 
 const StratumDivider = ({ year, count, index }: StratumDividerProps) => {
   const era = getEraLabel(Math.floor(new Date(year, 6, 1).getTime() / 1000));
-  const depth = Math.min(100, Math.max(0, ((2013 - year) / 5) * 100));
+  const depth = Math.min(100, Math.max(0, ((2012 - year) / 4) * 100));
   const colors = colorMap[year] || colorMap[2012];
   const dot = dotColor[year] || dotColor[2012];
 

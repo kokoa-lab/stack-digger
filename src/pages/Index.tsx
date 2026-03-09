@@ -79,7 +79,7 @@ const Index = () => {
           <p className="text-muted-foreground text-lg max-w-lg mx-auto leading-relaxed">
             Stack Overflow의 가장 오래된 답변을 유물처럼 발굴합니다.
             <br />
-            <span className="text-sm">2000~2012년, 웹 개발 고대 문명의 지층을 탐험하세요.</span>
+            <span className="text-sm">2008~2012년, 웹 개발 고대 문명의 지층을 탐험하세요.</span>
           </p>
           <div className="flex h-2 rounded-full overflow-hidden mt-6 max-w-xs mx-auto">
             <div className="flex-1 bg-stratum-surface" />

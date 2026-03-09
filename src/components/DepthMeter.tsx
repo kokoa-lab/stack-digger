@@ -7,11 +7,11 @@ interface DepthMeterProps {
 }
 
 const layers = [
-  { label: '표층 (2012~)', depth: 0, color: 'bg-stratum-surface', year: 2012 },
-  { label: '상층 (2010)', depth: 15, color: 'bg-stratum-shallow', year: 2010 },
-  { label: '중층 (2008)', depth: 35, color: 'bg-stratum-mid', year: 2008 },
-  { label: '하층 (2005)', depth: 55, color: 'bg-stratum-deep', year: 2005 },
-  { label: '심층 (2000~)', depth: 80, color: 'bg-stratum-ancient', year: 2000 },
+  { label: '표층 (2012)', depth: 0,  color: 'bg-stratum-surface',  year: 2012 },
+  { label: '상층 (2011)', depth: 20, color: 'bg-stratum-shallow', year: 2011 },
+  { label: '중층 (2010)', depth: 40, color: 'bg-stratum-mid',     year: 2010 },
+  { label: '하층 (2009)', depth: 60, color: 'bg-stratum-deep',    year: 2009 },
+  { label: '심층 (2008)', depth: 80, color: 'bg-stratum-ancient', year: 2008 },
 ];
 
 const DepthMeter = ({ sectionRefs, years }: DepthMeterProps) => {
@@ -40,7 +40,7 @@ const DepthMeter = ({ sectionRefs, years }: DepthMeterProps) => {
       // Map year to depth percentage
       const year = years[closestIdx];
       if (year !== undefined) {
-        const depth = Math.min(100, Math.max(0, ((2013 - year) / 13) * 100));
+        const depth = Math.min(100, Math.max(0, ((2012 - year) / 4) * 100));
         setScrollDepth(depth);
       }
     };

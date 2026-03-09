@@ -19,17 +19,13 @@ export interface SearchResult {
 }
 
 export async function searchOldAnswers(query: string): Promise<SearchResult> {
-  // Year ranges from 2000 to 2013
+  // Year ranges from 2008 to 2012
   const yearRanges = [
-    { from: 946684800,  to: 978307200  }, // 2000-2001
-    { from: 978307200,  to: 1041379200 }, // 2001-2003
-    { from: 1041379200, to: 1104537600 }, // 2003-2005
-    { from: 1104537600, to: 1167609600 }, // 2005-2007
-    { from: 1167609600, to: 1230768000 }, // 2007-2009
+    { from: 1199145600, to: 1230768000 }, // 2008-2009
     { from: 1230768000, to: 1262304000 }, // 2009-2010
     { from: 1262304000, to: 1293840000 }, // 2010-2011
     { from: 1293840000, to: 1325376000 }, // 2011-2012
-    { from: 1325376000, to: 1388534400 }, // 2012-2014
+    { from: 1325376000, to: 1356998400 }, // 2012-2013
   ];
 
   const fetchRange = async (range: { from: number; to: number }) => {
@@ -80,9 +76,6 @@ export async function searchOldAnswers(query: string): Promise<SearchResult> {
 
 export function getEraLabel(timestamp: number): string {
   const year = new Date(timestamp * 1000).getFullYear();
-  if (year <= 2003) return '태고대 — 인터넷 원시시대';
-  if (year <= 2005) return '시생대 — Web 1.0의 황혼';
-  if (year <= 2007) return '원생대 — Ajax 혁명 전야';
   if (year <= 2008) return '선캄브리아기 — Stack Overflow 태초';
   if (year <= 2009) return '고생대 — jQuery 전성시대';
   if (year <= 2010) return '중생대 — MVC 프레임워크의 부상';
@@ -127,15 +120,14 @@ export function getArchaeologicalComment(tags: string[], year: number): string {
 }
 
 export function getStratumDepth(year: number): number {
-  // 2000 = deepest (100), 2013 = shallowest (0)
-  return Math.min(100, Math.max(0, ((2013 - year) / 13) * 100));
+  // 2008 = deepest (100), 2012 = shallowest (0)
+  return Math.min(100, Math.max(0, ((2012 - year) / 4) * 100));
 }
 
 export function getStratumColor(year: number): string {
-  if (year <= 2003) return 'stratum-ancient';
-  if (year <= 2005) return 'stratum-ancient';
-  if (year <= 2007) return 'stratum-deep';
-  if (year <= 2009) return 'stratum-mid';
+  if (year <= 2008) return 'stratum-ancient';
+  if (year <= 2009) return 'stratum-deep';
+  if (year <= 2010) return 'stratum-mid';
   if (year <= 2011) return 'stratum-shallow';
   return 'stratum-surface';
 }
